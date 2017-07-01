@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"
+before_install:
+  pip install codecov
+install: "pip install -e frange"
+# command to run tests
+script:
+  - pytest -v --cov=frange --mpl # runs pytest in verbose mode, reports coverage of the optoanalysis library and with pytest-mpl so that the figures created are compared to the baselines in tests/baseline
+after_success:
+  codecov --token=78471a48-cd1c-434f-8d0b-afebb1b2c8c3
