@@ -73,16 +73,13 @@ class frange():
         array = _np.arange(s.start, s.stop, s.step)
         return array
 
-    def __array__(self):
-        s = self._slice
-        array = _np.arange(s.start, s.stop, s.step)
-        return array
+#    def __array__(self): # supposedly allows numpy to treat object itself as an array but it doesn't work?
+#        array = self.get_array()
+#        return array
     
     def __len__(self):
         return self.len
 
-    def __array__(self):
-        return self.get_array()        
 
 def drange(start, stop, step):
     """
