@@ -30,6 +30,15 @@ class frange():
         """
         Intialises frange class instance. Sets start, top, step and 
         len properties.
+
+        Parameters
+        ----------
+        start : float
+            starting point
+        stop : float
+            stopping point 
+        step : float
+           stepping interval
         """
         self._slice = slice(start, stop, step)
         self.len = self.get_array().size
