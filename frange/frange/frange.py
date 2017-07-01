@@ -13,17 +13,25 @@ class frange():
     as follows for some time data between 0 and 2 in steps of
     1e-3 (0.001)::
 
+        you can create an frange object like so
         $ time = frange(0, 2, 1e-3)
 
+        you can print the length of the array it will generate
         $ printlen(time) # prints length of frange, just like an array or list
 
+        you can create a generator
         $ generator = time.get_generator() # gets a generator instance
         $ for i in generator: # iterates through printing each element
         $     print(i)
 
+        you can create a numpy array
         $ array = time.get_array() # gets an array instance
         $ newarray = 5 * array # multiplies array by 5
 
+        you can also get the start, stop and step by accessing the slice parameters
+        $ start = time.slice.start
+        $ stop = time.slice.stop
+        $ step = time.slice.step
 
     """
     def __init__(self, start, stop, step):
@@ -40,7 +48,7 @@ class frange():
         step : float
            stepping interval
         """
-        self._slice = slice(start, stop, step)
+        self.slice = slice(start, stop, step)
         self.len = self.get_array().size
         return None
 
@@ -54,7 +62,7 @@ class frange():
             A generator that yields successive samples from start (inclusive)
             to stop (exclusive) in step steps.
         """
-        s = self._slice
+        s = self.slice
         gen = drange(s.start, s.stop, s.step) # intialises the generator
         return gen
     
@@ -69,7 +77,7 @@ class frange():
             Array of values from start (inclusive)
             to stop (exclusive) in step steps.
         """
-        s = self._slice        
+        s = self.slice        
         array = _np.arange(s.start, s.stop, s.step)
         return array
 
