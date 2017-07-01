@@ -13,23 +13,23 @@ It generates numbers in the same manner as numpy's arange function.
 ## Example usage
 
 ```python
-you can create an frange object like so
-$ time = frange(0, 2, 1e-3)
+# you can create an frange object like so
+>>> time = frange(0, 2, 1e-3)
 
-you can print the length of the array it will generate
-$ printlen(time) # prints length of frange, just like an array or list
+# you can print the length of the array it will generate
+>>> printlen(time) # prints length of frange, just like an array or list
 
-you can create a generator
-$ generator = time.get_generator() # gets a generator instance
-$ for i in generator: # iterates through printing each element
-$     print(i)
+# you can create a generator
+>>> generator = time.get_generator() # gets a generator instance
+>>> for i in generator: # iterates through printing each element
+>>>     print(i)
 
-you can create a numpy array
-$ array = time.get_array() # gets an array instance
-$ newarray = 5 * array # multiplies array by 5
+# you can create a numpy array
+>>> array = time.get_array() # gets an array instance
+>>> newarray = 5 * array # multiplies array by 5
 
-you can also get the start, stop and step by accessing the slice parameters
-$ start = time.slice.start
-$ stop = time.slice.stop
-$ step = time.slice.step
+# you can also get the start, stop and step by accessing the slice parameters
+>>> start = time.slice.start
+>>> stop = time.slice.stop
+>>> step = time.slice.step
 ```
