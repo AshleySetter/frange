@@ -96,11 +96,6 @@ class frange():
         for i, el in enumerate(self.get_generator()): array[i] = el # populates the numpy array
         return array
 
-    def __array__(self):
-        array = _np.empty(self.len) # intialises empty numpy array of the correct length
-        for i, el in enumerate(self.get_generator()): array[i] = el # populates the numpy array
-        return array
-    
     def __len__(self):
         return self.len
 

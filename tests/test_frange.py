@@ -37,3 +37,7 @@ def test_raise_zeroDivisionError():
     with pytest.raises(ZeroDivisionError):
         t = frange(1, 0, 0)
     return None
+
+def test_length():
+    assert len(frange(0, 10, 0.1).get_array()) == 100
+    return None
