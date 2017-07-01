@@ -34,7 +34,7 @@ class frange():
         self.start = start
         self.stop = stop
         self.step = step
-        self.len = len(list(self.get_generator())) # only time we must generate a list
+        self.len = self.get_array().size
         return None
 
     def get_generator(self):
