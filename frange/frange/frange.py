@@ -1,36 +1,5 @@
 import numpy as _np
 
-def drange(start, stop, step):
-    """
-    A generator that yields successive samples from start (inclusive)
-    to stop (exclusive) in step intervals.
-
-    Parameters
-    ----------
-    start : float
-        starting point
-    stop : float
-        stopping point 
-    step : float
-        stepping interval
-
-    Yields
-    ------
-    x : float
-        next sample
-    """
-    x = start
-    if step > 0:
-        while x + step <= stop: # produces same behaviour as numpy.arange
-            yield x
-            x += step
-    elif step < 0:
-        while x + step >= stop: # produces same behaviour as numpy.arange
-            yield x
-            x += step
-    else:
-        raise ZeroDivisionError("Step must be non-zero")
-    
 class frange():
     """
     Return an object can be used to generate a generator or an array 
@@ -92,10 +61,43 @@ class frange():
             Array of values from start (inclusive)
             to stop (exclusive) in step steps.
         """
-        array = _np.empty(self.len) # intialises empty numpy array of the correct length
-        for i, el in enumerate(self.get_generator()): array[i] = el # populates the numpy array
+        array = _np.arange(self.start, self.stop, self.step)
         return array
 
     def __len__(self):
         return self.len
 
+    def __array__(self):
+        return self.get_array()        
+
+def drange(start, stop, step):
+    """
+    A generator that yields successive samples from start (inclusive)
+    to stop (exclusive) in step intervals.
+
+    Parameters
+    ----------
+    start : float
+        starting point
+    stop : float
+        stopping point 
+    step : float
+        stepping interval
+
+    Yields
+    ------
+    x : float
+        next sample
+    """
+    x = start
+    if step > 0:
+        while x + step <= stop: # produces same behaviour as numpy.arange
+            yield x
+            x += step
+    elif step < 0:
+        while x + step >= stop: # produces same behaviour as numpy.arange
+            yield x
+            x += step
+    else:
+        raise ZeroDivisionError("Step must be non-zero")
+    
