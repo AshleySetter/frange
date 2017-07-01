@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/AshleySetter/frange.png)](https://travis-ci.org/AshleySetter/frange)
+[![codecov](https://codecov.io/gh/AshleySetter/frange/branch/master/graph/badge.svg)](https://codecov.io/gh/AshleySetter/frange)
+[![Documentation Status](https://readthedocs.org/projects/frange/badge/?version=latest)](http://frange.readthedocs.org/en/latest/?badge=latest)
+[![PyPI version](https://badge.fury.io/py/frange.svg)](https://badge.fury.io/py/frange)
+
 # frange
 Data type for efficiently storing large arrays of equally separated data in python, similar to range but for floats.
 
