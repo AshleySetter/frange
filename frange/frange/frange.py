@@ -31,9 +31,7 @@ class frange():
         Intialises frange class instance. Sets start, top, step and 
         len properties.
         """
-        self.start = start
-        self.stop = stop
-        self.step = step
+        self._slice = slice(start, stop, step)
         self.len = self.get_array().size
         return None
 
@@ -47,7 +45,8 @@ class frange():
             A generator that yields successive samples from start (inclusive)
             to stop (exclusive) in step steps.
         """
-        gen = drange(self.start, self.stop, self.step) # intialises the generator
+        s = self._slice
+        gen = drange(s.start, s.stop, s.step) # intialises the generator
         return gen
     
     def get_array(self):
@@ -61,9 +60,15 @@ class frange():
             Array of values from start (inclusive)
             to stop (exclusive) in step steps.
         """
-        array = _np.arange(self.start, self.stop, self.step)
+        s = self._slice        
+        array = _np.arange(s.start, s.stop, s.step)
         return array
 
+    def __array__(self):
+        s = self._slice
+        array = _np.arange(s.start, s.stop, s.step)
+        return array
+    
     def __len__(self):
         return self.len
 
